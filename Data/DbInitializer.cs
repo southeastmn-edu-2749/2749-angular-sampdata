@@ -130,6 +130,25 @@ namespace WideWorld.Data
                 context.RawSqlReturn.FromSql("set identity_insert OrgLocations OFF; select 1 as Id;").ToList();
                 context.SaveChanges();
             }
+
+            if (!context.PeopleOrgs.Any()) {
+                PersonOrg[] peopleOrgs = new PersonOrg[] {
+                    new PersonOrg { PersonId = 1017, OrgId = 934, LastEditedBy = 1 },
+                    new PersonOrg { PersonId = 1017, OrgId = 1934, LastEditedBy = 1 },
+                    new PersonOrg { PersonId = 1017, OrgId = 642, LastEditedBy = 1 },
+                    new PersonOrg { PersonId = 2147, OrgId = 1934, LastEditedBy = 1 },
+                    new PersonOrg { PersonId = 2147, OrgId = 642, LastEditedBy = 1 },
+                    new PersonOrg { PersonId = 2147, OrgId = 302, LastEditedBy = 1 },
+                    new PersonOrg { PersonId = 3044, OrgId = 642, LastEditedBy = 1 },
+                    new PersonOrg { PersonId = 3044, OrgId = 302, LastEditedBy = 1 },
+                    new PersonOrg { PersonId = 3044, OrgId = 930, LastEditedBy = 1 }
+                };
+
+                foreach (PersonOrg po in peopleOrgs) {
+                    context.PeopleOrgs.Add(po);
+                }
+                context.SaveChanges();
+            }
         }
     }
 }

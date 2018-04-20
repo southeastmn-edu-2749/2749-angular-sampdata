@@ -23,10 +23,14 @@ namespace WideWorld.Data
         public virtual DbSet<OrgRole> OrgRoles {get; set;}
         public virtual DbSet<Organization> Organizations {get; set;}
         public virtual DbSet<OrgLocation> OrgLocations {get; set;}
+        public virtual DbSet<PersonOrg> PeopleOrgs {get; set;}
         public virtual DbSet<RawSqlReturn> RawSqlReturn { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<PersonOrg>()
+                .HasKey(po => new { po.PersonId, po.OrgId } );
+
             modelBuilder.Entity<Countries>(entity =>
             {
                 entity.HasKey(e => e.CountryId);

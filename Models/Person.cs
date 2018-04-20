@@ -9,6 +9,9 @@ namespace WideWorld.Models
 {
     public class Person
     {
+        public Person() {
+            PeopleOrgs = new HashSet<PersonOrg>();
+        }
         [Required]
         [Key]
         public int PersonId { get; set; }
@@ -18,5 +21,6 @@ namespace WideWorld.Models
         
         [Required]
         public int LastEditedBy { get; set; }
+        public ICollection<PersonOrg> PeopleOrgs { get; set; }
     }
 }

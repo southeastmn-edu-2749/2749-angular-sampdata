@@ -12,6 +12,7 @@ namespace WideWorld.Models
         public Organization()
         {
             OrgLocations = new HashSet<OrgLocation>();
+            PeopleOrgs = new HashSet<PersonOrg>();
         }
         
         [Required]
@@ -34,5 +35,6 @@ namespace WideWorld.Models
         public OrgRole OrgRole { get; set; }
         public int UpdatedByRoleKey { get; set; }
         public ICollection<OrgLocation> OrgLocations { get; set; }
+        public ICollection<PersonOrg> PeopleOrgs { get; set; }
     }
 }
