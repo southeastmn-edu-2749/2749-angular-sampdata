@@ -30,6 +30,53 @@ namespace WideWorld.Data
         {
             modelBuilder.Entity<PersonOrg>()
                 .HasKey(po => new { po.PersonId, po.OrgId } );
+                
+            // modelBuilder.Entity<PersonOrg>(entity =>
+            // {
+            //     entity.HasKey(po => new { po.PersonId, po.OrgId } );
+
+            //     entity.HasOne(po => po.Person)
+            //         .WithMany(p => p.PeopleOrgs)
+            //         .HasForeignKey(po => po.PersonId)
+            //         .OnDelete(DeleteBehavior.ClientSetNull);
+            //     entity.HasOne(po => po.Organization)
+            //         .WithMany(o => o.PeopleOrgs)
+            //         .HasForeignKey(po => po.OrgId)
+            //         .OnDelete(DeleteBehavior.ClientSetNull);
+            // }); 
+
+            // modelBuilder.Entity<Users>(entity =>
+            // {
+            //     entity.HasKey(u => new { u.UserId } );
+            // });               
+                
+            // modelBuilder.Entity<Person>(entity =>
+            // {
+            //     entity.HasKey(p => new { p.PersonId } );
+            // });           
+                
+            // modelBuilder.Entity<OrgRole>(entity =>
+            // {
+            //     entity.HasKey(or => new { or.OrgRoleId } );
+            // });          
+                
+            // modelBuilder.Entity<Organization>(entity =>
+            // {
+            //     entity.HasKey(o => new { o.OrgId } );
+            //     entity.HasOne(o => o.OrgRole)
+            //         .WithMany(or => or.Organizations)
+            //         .HasForeignKey(o => o.OrgRoleId)
+            //         .OnDelete(DeleteBehavior.ClientSetNull);
+            // }); 
+
+            // modelBuilder.Entity<OrgLocation>(entity =>
+            // {
+            //     entity.HasKey(loc => new { loc.OrgLocationId } );
+            //     entity.HasOne(loc => loc.Organization)
+            //         .WithMany(org => org.OrgLocations)
+            //         .HasForeignKey(loc => loc.OrgId)
+            //         .OnDelete(DeleteBehavior.ClientSetNull);
+            // });                 
 
             modelBuilder.Entity<Countries>(entity =>
             {
